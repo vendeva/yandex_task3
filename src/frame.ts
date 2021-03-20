@@ -27,12 +27,10 @@ function receiveMessage({ data }: MessageEvent<XMessage>) {
 function onDocumentClick(e: MouseEvent) {
     if (e.target instanceof HTMLElement) {
         let target = e.target;
-        console.log(target);
-        console.log(target.dataset);
-        while (target && !target.dataset) {
+        while (target && Object.keys(target.dataset).length === 0) {
             target = target.parentElement;
         }
-
+        if (!target) return;
         const { action, params } = target.dataset;
         sendMessage(messageAction(action, params));
     }
