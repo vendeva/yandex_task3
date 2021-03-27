@@ -47,12 +47,24 @@ export const data = produce((draft: Draft<State>, action: Action) => {
         case "update":
             const { alias, data } = action.data;
 
-            if (alias) {
-                draft.stories[draft.index].alias = alias;
-            }
-
-            if (data) {
+            // Для голосования за участников записываем selectedUserId для слайда vote и соответствующего ему слайда leaders (такой же title)
+            if (alias === "leaders" && data) {
+                const indexLeaders = draft.stories.findIndex((item) => {
+                    return (
+                        "leaders" === Object.values(item).shift() && Object.values(item.data).shift() === Object.values(draft.stories[draft.index].data).shift()
+                    );
+                });
+                if (indexLeaders >= 0) {
+                    Object.assign(draft.stories[indexLeaders].data, data);
+                }
                 Object.assign(draft.stories[draft.index].data, data);
+            } else {
+                if (alias) {
+                    draft.stories[draft.index].alias = alias;
+                }
+                if (data) {
+                    Object.assign(draft.stories[draft.index].data, data);
+                }
             }
 
             break;

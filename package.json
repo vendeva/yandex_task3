@@ -1,25 +1,52 @@
 {
-  "name": "shri-2021-task-3",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "start": "webpack serve --mode development --open"
-  },
-  "dependencies": {
-    "immer": "^8.0.1",
-    "rxjs": "^6.6.3"
-  },
-  "devDependencies": {
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^7.0.0",
-    "css-loader": "^5.0.1",
-    "html-webpack-plugin": "^4.5.1",
-    "mini-css-extract-plugin": "^1.3.5",
-    "ts-loader": "^8.0.14",
-    "typescript": "^4.1.3",
-    "webpack": "^5.19.0",
-    "webpack-cli": "^4.4.0",
-    "webpack-dev-server": "^3.11.2"
-  }
+    "name": "shri-2021-task-3",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "webpack --mode production",
+        "watch": "webpack --watch",
+        "start": "webpack serve --mode development --open"
+    },
+    "dependencies": {
+        "immer": "^8.0.1",
+        "rxjs": "^6.6.3"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.15.2",
+        "autoprefixer": "^10.2.5",
+        "clean-webpack-plugin": "^3.0.0",
+        "copy-webpack-plugin": "^7.0.0",
+        "css-loader": "^5.0.1",
+        "css-minimizer-webpack-plugin": "^1.3.0",
+        "eslint": "^7.20.0",
+        "eslint-config-airbnb-typescript": "^12.3.1",
+        "eslint-config-prettier": "^8.0.0",
+        "eslint-plugin-prettier": "^3.3.1",
+        "file-loader": "^6.2.0",
+        "html-webpack-plugin": "^4.5.1",
+        "less": "^4.1.1",
+        "less-loader": "^8.0.0",
+        "mini-css-extract-plugin": "^1.3.5",
+        "postcss-loader": "^5.0.0",
+        "prettier": "^2.2.1",
+        "prettier-eslint": "^12.0.0",
+        "style-loader": "^2.0.0",
+        "ts-loader": "^8.0.14",
+        "typescript": "^4.1.3",
+        "webpack": "^5.19.0",
+        "webpack-cli": "^4.4.0",
+        "webpack-dev-server": "^3.11.2"
+    },
+    "browserslist": [
+        "> 1%",
+        "ie >= 8",
+        "edge >= 15",
+        "ie_mob >= 10",
+        "ff >= 45",
+        "chrome >= 45",
+        "safari >= 7",
+        "opera >= 23",
+        "ios >= 7",
+        "android >= 4",
+        "bb >= 10"
+    ]
 }

@@ -1,5 +1,5 @@
 import { EMPTY, interval, merge, MonoTypeOperatorFunction, Observable, of } from "rxjs";
-import { filter, mapTo, mergeMap, take, withLatestFrom } from "rxjs/operators";
+import { filter, mapTo, mergeMap, withLatestFrom } from "rxjs/operators";
 import { Action, actionMessage, actionNext, actionPrev, actionRestart, actionTimer, actionUpdate } from "./actions";
 import { DELAY, INTERVAL, Slide, State } from "./types";
 
@@ -12,7 +12,7 @@ export function createEffects(actions$: Observable<Action>, state$: Observable<S
 
     const changeSlideEffect$ = timerEffect$.pipe(
         withLatestFrom(state$),
-        mergeMap(([a, s]) => (s.progress >= DELAY && !s.pause ? of(actionNext()) : EMPTY))
+        mergeMap(([, s]) => (s.progress >= DELAY && !s.pause ? of(actionNext()) : EMPTY))
     );
 
     const messageEffect$ = actions$.pipe(

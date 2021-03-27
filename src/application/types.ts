@@ -6,7 +6,7 @@ export interface Slide {
     data: object;
 }
 
-export type SlideTheme = 'light' | 'dark';
+export type SlideTheme = "light" | "dark";
 
 export interface State {
     theme: SlideTheme;
@@ -16,16 +16,13 @@ export interface State {
     pause: boolean;
 }
 
-const hasSymbol =
-    typeof Symbol !== 'undefined' && typeof Symbol('x') === 'symbol';
+const hasSymbol = typeof Symbol !== "undefined" && typeof Symbol("x") === "symbol";
 
-export const DRAFT_STATE: unique symbol = hasSymbol
-    ? Symbol.for('state')
-    : ('state' as any);
+export const DRAFT_STATE: unique symbol = hasSymbol ? Symbol.for("state") : ("state" as any);
 
 export const descriptors: { [prop: string]: PropertyDescriptor } = {};
 
 export const errors = {
-    0: 'Illegal state',
-    1: 'Drafts cannot have computed properties',
+    0: "Illegal state",
+    1: "Drafts cannot have computed properties",
 };

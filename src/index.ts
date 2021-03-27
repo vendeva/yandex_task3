@@ -7,7 +7,8 @@ import { initIframe, initProgress, sendMessage, setElementTheme, setScale } from
 
 import "./index.css";
 
-import { stories } from "./data";
+import { stories } from "./dataStories";
+//import { stories } from "./data";
 
 const [dispatch, state$] = createState(stories);
 
@@ -34,6 +35,21 @@ createCurrentIndexSelector(state$).subscribe((index) => {
     player.style.transform = `translateX(-${index * 100}%)`;
     bars.forEach((el, i) => setScale(el, i < index ? 1 : 0));
 });
+
+//Для Stories рендеринг слайда при повороте экрана
+window.addEventListener(
+    "orientationchange",
+    function () {
+        setTimeout(() => {
+            createCurrentDataSelector(state$).subscribe(({ index, value: { alias, data } }) => {
+                if (alias === "activity" || alias === "vote") {
+                    sendMessage(frames[index], messageUpdate(alias, data));
+                }
+            });
+        }, 20);
+    },
+    false
+);
 
 createCurrentDataSelector(state$).subscribe(({ index, value: { alias, data } }) => {
     sendMessage(frames[index], messageUpdate(alias, data));
