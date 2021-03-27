@@ -30,9 +30,9 @@
 ## Дополнительное задание
 
 -   Добавлены результаты первого задания: src/assets - файлы less, images, fonts, css, также в папке stories файл stories.js c функцией renderTemplate, файл dataStories.ts с данными слайдов
--   В соответсвии с этим изменен package.json, добавлены зависимости для форматирования кода eslint, prettier и т.д., а также зависомости для успешной компиляции файлов less и форматов svg, jpg такие, как less-loader, less, postcss-loader, autoprefixer, file-loader, style-loader для development режима
--   Изменен webpack.config.js: точка входа для frame добавлен путь к папке с файлами less,
-    copyPlugin теперь копирует папку stories и img, в index.ts импортируется { stories } from "./dataStories"
+-   В соответствии с этим изменен package.json, добавлены зависимости для форматирования кода eslint, prettier и т.д., а также зависомости для успешной компиляции файлов less и форматов svg, jpg такие, как less-loader, less, postcss-loader, autoprefixer, file-loader, style-loader для development режима, добавлен browserlist, прописаны соответствующие инструкции в webpack.config.js
+-   Изменен webpack.config.js: в точка входа для frame добавлен путь к папке с файлами less,
+    copyPlugin теперь копирует папку stories и img, в index.ts импортируется { stories } from "./dataStories", в файле frame.html закомментировано подключение stories.css
 -   В index.ts добавлен код на отслеживание изменения ориентации экрана, для слайдов activity и vote при изменении экрана необходимо отправить сообщение фрейму об обновлении данных
 -   Файл src/application/data.ts строки 50-66: Для голосования в файле data.ts в функции data, получая действие update cо следующими данными: alias leaders и при наличии data, обновляется состояние текущего слайда vote и соответствующего leaders, если он есть в списке с таким же значением title, записывается в selectedUserId новое значение
 -   Работает переключение страниц в vote, если disable arrow подсвечивается серым
